@@ -1,11 +1,13 @@
 # RaspPiMesh
 The following website was used for reference: https://mjuenema.github.io/80211s_wireless_mesh/
 
+The following steps are for creating a file that executes each time a raspberry pi boots up. The files allow the raspberry pi to be a node for the mesh network
+
 1. Create a shell file. I named it boot in this scenario
 
 ```sudo nano ~/boot.sh```
 
-2. edit the file to contain the following
+2. Edit the file to contain the following. Note that the ip address's last digit can vary. For example, 192.168.1.1 and 192.168.1.2
 
 ```
 #!/bin/sh
@@ -14,6 +16,16 @@ sudo iw mesh0 set type mp
 sudo iw dev mesh0 set channel 4
 sudo ifconfig wlan1 down
 sudo ifconfig mesh0 up
-sudo ip addr add 192.168.1.3/24 dev mesh0
+sudo ip addr add 192.168.1.3/24 dev mesh0 
 ```
-3. 
+3. Make the file executable by typing the following code into a terminal
+
+```sudo chmod +x boot.sh```
+
+4. Type the following code in the terminal 
+
+```sudo crontab -e```
+
+5. Scroll all the way down and then insert the following code
+
+```@reboot sh boot.sh &```
