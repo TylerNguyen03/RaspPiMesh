@@ -29,3 +29,5 @@ sudo ip addr add 192.168.1.3/24 dev mesh0
 5. Scroll all the way down and then insert the following code before the line "exit 0." Note that the code will change based on the boot script location
 
 ```/home/rasp2/boot.sh &```
+
+Note: It took a couple of reboots and waiting a few seconds after the PI booted up before the node was established
