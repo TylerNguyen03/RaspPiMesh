@@ -24,8 +24,8 @@ sudo ip addr add 192.168.1.3/24 dev mesh0
 
 4. Type the following code in the terminal 
 
-```sudo crontab -e```
+```sudo nano /etc/rc.local```
 
-5. Scroll all the way down and then insert the following code
+5. Scroll all the way down and then insert the following code before the line "exit 0." Note that the code will change based on the boot script location
 
-```@reboot sh boot.sh &```
+```/home/rasp2/boot.sh &```
