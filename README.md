@@ -1,5 +1,4 @@
 # RaspPiMesh
-The following website was used for reference: https://mjuenema.github.io/80211s_wireless_mesh/
 
 The following steps are for creating a file that executes each time a raspberry pi boots up. The files allow the raspberry pi to be a node for the mesh network
 
