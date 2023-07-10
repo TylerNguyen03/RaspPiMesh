@@ -11,10 +11,15 @@ The following steps are for creating a file that executes each time a raspberry 
 ```
 #!/bin/sh
 sudo iw dev wlan1 interface add mesh0 type mp mesh_id MYMESHID
+sleep 1
 sudo iw mesh0 set type mp
+sleep 1
 sudo iw dev mesh0 set channel 4
+sleep 1
 sudo ifconfig wlan1 down
+sleep 1
 sudo ifconfig mesh0 up
+sleep 1
 sudo ip addr add 192.168.1.3/24 dev mesh0 
 ```
 3. Make the file executable by typing the following code into a terminal
@@ -29,4 +34,15 @@ sudo ip addr add 192.168.1.3/24 dev mesh0
 
 ```/home/rasp2/boot.sh &```
 
-Note: It took a couple of reboots and waiting a few seconds after the PI booted up before the node was established
+6. Go to dhcpcd
+
+```sudo nano /etc/dhcpcd.conf```
+
+7. Disable wpa_supplicant
+
+```
+denyinterfaces wlan1
+denyinterfaces mesh0
+```
+
+8. Reboot
