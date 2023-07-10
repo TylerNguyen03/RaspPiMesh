@@ -46,3 +46,11 @@ denyinterfaces mesh0
 ```
 
 8. Reboot
+
+9. Test to see if the other Raspberry Pi works
+
+```ping 192.168.1.3```
+
+10. Collect Data
+
+```iw mesh0 station dump```
