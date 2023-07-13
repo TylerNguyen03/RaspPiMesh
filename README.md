@@ -1,8 +1,11 @@
 # RaspPiMesh
 
-1. Install gedit
+1. Install gedit and iperf
 
-```sudo apt-get install gedit```
+```
+sudo apt-get install gedit
+sudo apt install -y iperf3
+```
 
 2. Create script
 
@@ -80,10 +83,18 @@ denyinterfaces mesh0
 
 13. Reboot
 
-14. Test to see if the other Raspberry Pi works
+14. Collect data speed by inserting ip of address of other nodes. This command collects data and then puts it in a file named "test"
 
-```ping 192.168.1.3```
+```
+ping 192.168.1.3 > test
+```
 
-15. Collect Data
+15. Collect birate by first making one of the raspberry pi a server and then connecting to that server using its ip in another raspberry pi 
 
-```iw mesh0 station dump```
+```
+iperf3 -s
+```
+
+```
+iperf3 -c 10.106.94.250 > test1.1
+```
