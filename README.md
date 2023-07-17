@@ -105,20 +105,4 @@ denyinterfaces mesh0
 
 14. Reboot
 
-15. Collect data speed by inserting ip of address of other nodes. This command collects data and then puts it in a file named "test"
-
-```
-ping 192.168.1.3 > test
-```
-
-16. Collect birate by first making one of the raspberry pi a server and then connecting to that server using its ip in another raspberry pi 
-
-```
-iperf3 -s
-```
-
-```
-iperf3 -c 10.106.94.250 > test1.1
-```
-
-The next step will go into turning of the the Raspberry Pi into a [server](raspberrypi_server.md) which will then go into testing
+The next step will go into turning of the the Raspberry Pi into a [server](raspberrypi_server.md) which will then go into [testing](testing.md).
