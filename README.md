@@ -1,20 +1,26 @@
 # RaspPiMesh
 
-1. Install gedit and iperf
+1. Update the Raspberry Pi
+
+```
+sudo apt-get update && sudo apt-get upgrade -y
+```
+
+2. Install gedit and iperf
 
 ```
 sudo apt-get install gedit
 sudo apt install -y iperf3
 ```
 
-2. Create script
+3. Create script
 
 ```
 touch boot.sh
 gedit boot.sh
 ```
 
-3. Edit the file to contain the following. Note that the ip address's last digit can vary. For example, 192.168.1.1 and 192.168.1.2
+4. Edit the file to contain the following. Note that the ip address's last digit can vary. For example, 192.168.1.1 and 192.168.1.2
 
 ```
 #!/bin/sh
@@ -26,19 +32,19 @@ sudo ifconfig mesh0 up
 sudo ip addr add 192.168.1.3/24 dev mesh0 
 ```
 
-4. Copy script to bin directory
+5. Copy script to bin directory
 
 ```sudo cp boot.sh /usr/local/bin```
 
-5. Make the file executable by typing the following code into a terminal
+6. Make the file executable by typing the following code into a terminal
 
 ```sudo chmod +x /usr/local/bin/boot.sh```
 
-6. Create unit file 
+7. Create unit file 
 
 ```sudo gedit /etc/systemd/system/boot.service```
 
-7. Edit unit file
+8. Edit unit file
 
 ```
 [Unit]
@@ -58,38 +64,38 @@ KillMode=process
 WantedBy=multi-user.target
 ```
 
-8. Change permissions
+9. Change permissions
 
 ```sudo chmod 640 /etc/systemd/system/boot.service```
 
-9. Reload file
+10. Reload file
 
 ```sudo systemctl daemon-reload```
 
-10. Enable script at startup
+11. Enable script at startup
 
 ```sudo systemctl enable boot```
 
-11. Go to dhcpcd
+12. Go to dhcpcd
 
 ```sudo nano /etc/dhcpcd.conf```
 
-12. Disable wpa_supplicant by inserting commands
+13. Disable wpa_supplicant by inserting commands
 
 ```
 denyinterfaces wlan1
 denyinterfaces mesh0
 ```
 
-13. Reboot
+14. Reboot
 
-14. Collect data speed by inserting ip of address of other nodes. This command collects data and then puts it in a file named "test"
+15. Collect data speed by inserting ip of address of other nodes. This command collects data and then puts it in a file named "test"
 
 ```
 ping 192.168.1.3 > test
 ```
 
-15. Collect birate by first making one of the raspberry pi a server and then connecting to that server using its ip in another raspberry pi 
+16. Collect birate by first making one of the raspberry pi a server and then connecting to that server using its ip in another raspberry pi 
 
 ```
 iperf3 -s
