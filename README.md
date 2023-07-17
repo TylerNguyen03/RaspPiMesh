@@ -36,15 +36,21 @@ sudo ip addr add 192.168.1.3/24 dev mesh0
 
 5. Copy script to bin directory
 
-```sudo cp boot.sh /usr/local/bin```
+```
+sudo cp boot.sh /usr/local/bin
+```
 
 6. Make the file executable by typing the following code into a terminal
 
-```sudo chmod +x /usr/local/bin/boot.sh```
+```
+sudo chmod +x /usr/local/bin/boot.sh
+```
 
 7. Create unit file 
 
-```sudo gedit /etc/systemd/system/boot.service```
+```
+sudo gedit /etc/systemd/system/boot.service
+```
 
 8. Edit unit file
 
@@ -68,19 +74,27 @@ WantedBy=multi-user.target
 
 9. Change permissions
 
-```sudo chmod 640 /etc/systemd/system/boot.service```
+```
+sudo chmod 640 /etc/systemd/system/boot.service
+```
 
 10. Reload file
 
-```sudo systemctl daemon-reload```
+```
+sudo systemctl daemon-reload
+```
 
 11. Enable script at startup
 
-```sudo systemctl enable boot```
+```
+sudo systemctl enable boot
+```
 
 12. Go to dhcpcd
 
-```sudo nano /etc/dhcpcd.conf```
+```
+sudo nano /etc/dhcpcd.conf
+```
 
 13. Disable wpa_supplicant by inserting commands
 
