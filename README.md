@@ -105,4 +105,4 @@ denyinterfaces mesh0
 
 14. Reboot
 
-The next step will go into turning of the the Raspberry Pi into a [server](raspberrypi_server.md) which will then go into [testing](testing.md).
+The next step will go into turning one of the Raspberry Pi into a [server](raspberrypi_server.md) which will then go into [testing](testing.md).
