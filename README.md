@@ -1,5 +1,7 @@
 # RaspPiMesh
 
+This section should be applied to all of the Raspberry Pi
+
 1. Update the Raspberry Pi
 
 ```
