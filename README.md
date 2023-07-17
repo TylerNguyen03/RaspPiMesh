@@ -120,3 +120,5 @@ iperf3 -s
 ```
 iperf3 -c 10.106.94.250 > test1.1
 ```
+
+The next step will go into turning of the the Raspberry Pi into a [server](raspberrypi_server.md) which will then go into testing
