@@ -39,8 +39,8 @@ iperf3 -c 192.168.1.2 -t 20
 ping 192.168.1.3 -i .2
 ```
 
-- if you want the ping command to only display time, use the following command
+- if you want the ping command to only display time, use the following command. It's important to note that the last line of data should be disregarded
 
 ```
-ping 192.168.1.2 | grep -Po "time.*"
+ping 192.168.1.2 | grep -Po '[0-9.]*(?= ms)'
 ```
