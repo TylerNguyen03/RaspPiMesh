@@ -27,13 +27,7 @@ ping 192.168.1.2 > test
 ping 192.168.1.3 -c 20
 ```
 
-- you can specify how long the iperf3 command runs for using the -t followed by a time. In this example, the iperf command will run for 20 seconds
-
-```
-iperf3 -c 192.168.1.2 -t 20
-```
-
-- you can increase the rate at twhich the ping collects data using the -i follwed by a number. The fastest rate of data collection for the ping command is 200 ms. In this example, the ping command collect data every 0.2 seconds.
+- you can increase the rate at which the ping collects data using the -i follwed by a number. The fastest rate of data collection for the ping command is 200 ms. This command can also be applied to the iperf3 command, except that command doesn't have the same limiation as the ping command. In this example, the ping command collect data every 0.2 seconds.
 
 ```
 ping 192.168.1.3 -i .2
@@ -43,4 +37,16 @@ ping 192.168.1.3 -i .2
 
 ```
 ping 192.168.1.2 | grep -Po '[0-9.]*(?= ms)'
+```
+
+- you can specify how long the iperf3 command runs for using the -t followed by a time. In this example, the iperf command will run for 20 seconds
+
+```
+iperf3 -c 192.168.1.2 -t 20
+```
+
+- you can use the following command to display only bitrate. It's important to note that the last 2 lines of data should be disregarded
+
+```
+iperf3 -c 192.168.1.2 | grep -Po '[0-9.]*(?= Mbits/sec)'
 ```
