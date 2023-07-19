@@ -21,7 +21,7 @@ Notes:
 ping 192.168.1.2 > test
 ```
 
-- you can specify how long the ping commands run for using the -c followed by a time. In this example, the ping command will run for 20 seconds
+- you can specify how much packets the ping commands run for using the -c followed by a number. In this example, the ping command will run for 20 packets
 
 ```
 ping 192.168.1.3 -c 20
@@ -31,4 +31,16 @@ ping 192.168.1.3 -c 20
 
 ```
 iperf3 -c 192.168.1.2 -t 20
+```
+
+- you can increase the rate at twhich the ping collects data using the -i follwed by a number. The fastest rate of data collection for the ping command is 200 ms. In this example, the ping command collect data every 0.2 seconds.
+
+```
+ping 192.168.1.3 -i .2
+```
+
+- if you want the ping command to only display time, use the following command
+
+```
+ping 192.168.1.2 | grep -Po "time.*"
 ```
