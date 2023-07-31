@@ -1,7 +1,7 @@
 # Testing
 This section will go over a few commands to test speed and bitrate
 
-Bitrate: On the Raspberry Pi that isn't the server, use the following command. In this scenario, the Pi with the assigned ip address 192.168.1.2 was the server. 
+Bitrate: on the Raspberry Pi that isn't the server, use the following command. In this scenario, the Pi with the assigned ip address 192.168.1.2 was the server. 
 
 ```
 iperf3 -c 192.168.1.2
@@ -11,6 +11,18 @@ Speed: use the ping command to test the speed between nodes
 
 ```
 ping 192.168.1.2
+```
+
+Mpath: this command shows the path the mesh takes when communicating with one another
+
+```
+sudo iw dev mesh0 mpath dump
+```
+
+Station: use this command to see the signal as well as bitrate
+
+```
+sudo iw dev mesh0 station dump
 ```
 
 Notes: 
@@ -50,3 +62,8 @@ iperf3 -c 192.168.1.2 -t 20
 ```
 iperf3 -c 192.168.1.2 | grep -Po '[0-9.]*(?= Mbits/sec)'
 ```
+
+# Testing Part 2
+This section goes over an executable file that can be used to collect data efficiently. Note that this script will need to be edited for each expierment
+
+
