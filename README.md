@@ -22,7 +22,7 @@ touch boot.sh
 gedit boot.sh
 ```
 
-4. Edit the file to contain the following. Note that the ip address's last digit can vary. For example, 192.168.1.1 and 192.168.1.2
+4. Edit the file to contain the following. Note that the ip address's last digit should vary. For example, 192.168.1.1 and 192.168.1.2
 
 ```
 #!/bin/sh
