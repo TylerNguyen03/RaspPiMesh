@@ -66,4 +66,26 @@ iperf3 -c 192.168.1.2 | grep -Po '[0-9.]*(?= Mbits/sec)'
 # Testing Part 2
 This section goes over an executable file that can be used to collect data efficiently. Note that this script will need to be edited for each expierment
 
+1. Create the script. I named it "datacollect" in this case
+
+```
+touch datacollect.sh
+gedit datacollect.sh
+```
+
+2. Edit the file to contain the following. Note that the file destination can be changed. For example, ex1test1ping can be edited to ex1test2ping after a trial
+
+```
+#!/bin/sh
+ping 192.168.1.4 -c 300 -i .2| grep -Po '[0-9.]*(?= ms)' > ex1test1ping
+iperf3 -c 192.168.1.4 -t 60 -i .2| grep -Po '[0-9.]*(?= Mbits/sec)' > ex1test1iperf
+sudo iw dev mesh0 station dump > ex1test1stat
+sudo iw dev mesh0 mpath dump > ex1test1mpath
+```
+
+3. Execute the file via the following
+
+```
+sh datacollect.sh
+```
 
