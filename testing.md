@@ -64,7 +64,7 @@ iperf3 -c 192.168.1.2 | grep -Po '[0-9.]*(?= Mbits/sec)'
 ```
 
 # Testing Part 2
-This section goes over an executable file that can be used to collect data efficiently. Note that this script will need to be edited for each expierment
+This section goes over an executable file that can be used to collect data efficiently. Note that this script will need to be edited for each experiment
 
 1. Create the script. I named it "datacollect" in this case
 
