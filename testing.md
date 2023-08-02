@@ -86,7 +86,7 @@ sudo iw dev mesh0 mpath dump > ex1test1mpath
 3. Make the file executable
 
 ```
-sudo chmod +x /usr/local/bin/datacollect.sh
+sudo chmod +x datacollect.sh
 ```
 
 4. Execute the file via the following
