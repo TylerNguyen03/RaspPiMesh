@@ -63,6 +63,12 @@ iperf3 -c 192.168.1.2 -t 20
 iperf3 -c 192.168.1.2 | grep -Po '[0-9.]*(?= Mbits/sec)'
 ```
 
+- you can add in -f [format] onto the iperf command to change units. For consistency reasons, I added in "m" so that the command will always print in mbits/sec
+
+```
+iperf3 -c 192.168.1.4 -f m
+```
+
 # Testing Part 2
 This section goes over an executable file that can be used to collect data efficiently. Note that this script will need to be edited for each experiment
 
@@ -77,8 +83,8 @@ gedit datacollect.sh
 
 ```
 #!/bin/sh
-ping 192.168.1.4 -c 90| grep -Po '[0-9.]*(?= ms)' > ex1test1ping
-iperf3 -c 192.168.1.4 -t 90 | grep -Po '[0-9.]*(?= Mbits/sec)' > ex1test1iperf
+ping 192.168.1.4 -c 90 -f m | grep -Po '[0-9.]*(?= ms)' > ex1test1ping
+iperf3 -c 192.168.1.4 -t 90 -f m | grep -Po '[0-9.]*(?= Mbits/sec)' > ex1test1iperf
 sudo iw dev mesh0 station dump > ex1test1stat
 sudo iw dev mesh0 mpath dump > ex1test1mpath
 ```
